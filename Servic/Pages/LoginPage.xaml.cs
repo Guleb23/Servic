@@ -42,9 +42,29 @@ namespace Servic.Pages
             var autorizeUser = applicationDBContext.Users.FirstOrDefault(x => x.Login == txbLogin.Text && x.Password == txbPass.Password);
             if (autorizeUser != null)
             {
-                AutoriseUser.AutorizeUser = autorizeUser;
-                NavigationService.Navigate(new NextPage());
-                
+                int iterator = autorizeUser.Type;
+                switch (iterator)
+                {
+                    case 1:
+                        AutoriseUser.AutorizeUser = autorizeUser;
+                        NavigationService.Navigate(new MasterPage());
+                        break;
+                    case 2:
+                        AutoriseUser.AutorizeUser = autorizeUser;
+                        NavigationService.Navigate(new NextPage());
+                        break;
+                    case 3:
+                        AutoriseUser.AutorizeUser = autorizeUser;
+                        NavigationService.Navigate(new ManagerPage());
+                        break;
+                    default:
+                        AutoriseUser.AutorizeUser = autorizeUser;
+                        NavigationService.Navigate(new OperatorPage());
+                        break;
+                    
+
+                }
+
             }
             else
             {

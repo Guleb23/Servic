@@ -32,5 +32,10 @@ namespace Servic.Pages
             dtgr.DataContext = orders;
             dtgr.ItemsSource = orders;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            miniFrame.Navigate(new CreateOrder());
+        }
     }
 }

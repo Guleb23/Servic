@@ -16,7 +16,9 @@
         <StackPanel Margin="10" >
             <TextBlock x:Name="txbName"></TextBlock>
             <TextBlock x:Name="txbRole"></TextBlock>
+            <Button Content="Создать заказ" Click="Button_Click"></Button>
         </StackPanel>
+        <Frame x:Name="miniFrame" Grid.Column="1" Panel.ZIndex="1000"></Frame>
         <StackPanel Grid.Column="1" >
             <TextBlock Text="Заказы" HorizontalAlignment="Center" ></TextBlock>
             <DataGrid  x:Name="dtgr" Height="300" >
