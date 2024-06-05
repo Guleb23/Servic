@@ -12,28 +12,43 @@ namespace Servic.Pages
     public partial class CreateOrder : Page
     {
         ApplicationDBContext applicationDB;
-        public CreateOrder()
+        Servic.Models.Application apl = new Models.Application();
+        bool isUpdate = false;
+        public CreateOrder(Servic.Models.Application selectedApplication)
         {
+            
             InitializeComponent();
+            if (selectedApplication != null)
+            {
+                isUpdate = true;
+                apl = selectedApplication;
+            }
+            DataContext = apl;
             applicationDB = new ApplicationDBContext();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Servic.Models.Application apl = new Servic.Models.Application()
+
+            
+            apl.startDate = DateOnly.FromDateTime(DateTime.Now);
+            apl.clientID = AutoriseUser.AutorizeUser.UserID;
+            apl.applicationStatus = "Новая заявка";
+            if(isUpdate)
             {
-                startDate = DateOnly.FromDateTime(DateTime.Now),
-                climateTechModel = txbModel.Text,
-                climateTechType = txbObject.Text,
-                proplemDescryption = txbObject.Text,
-                clientID = AutoriseUser.AutorizeUser.UserID,
-                applicationStatus = 3,
-            };
-            applicationDB.Application.Add(apl);
+                applicationDB.Update(apl);
+            }
+            else
+            {
+                apl.carModel = txbModel.Text;
+                apl.carType = txbObject.Text;
+                apl.proplemDescryption = txbDescr.Text;
+                applicationDB.Application.Add(apl);
+            }
             applicationDB.SaveChanges();
             MessageBox.Show("зАКАЗ УСПЕШНО СОЗДАН");
-            
-            
+            NavigationService.GoBack();
+
 
         }
     }

@@ -42,7 +42,7 @@ namespace Servic.Pages
             var autorizeUser = applicationDBContext.Users.FirstOrDefault(x => x.Login == txbLogin.Text && x.Password == txbPass.Password);
             if (autorizeUser != null)
             {
-                int iterator = autorizeUser.Type;
+                int iterator = autorizeUser.TypeId;
                 switch (iterator)
                 {
                     case 1:
@@ -68,7 +68,7 @@ namespace Servic.Pages
             }
             else
             {
-                MessageBox.Show("Непраильный логин или пароль");
+                MessageBox.Show("Неправильный логин или пароль");
             }
         }
     }

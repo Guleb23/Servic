@@ -16,10 +16,10 @@ namespace App
             optionsBuilder.UseSqlServer("Server=DESKTOP-RRSQIN1\\SQLEXPRESS;Database=DatabaseForExam;Integrated Security=true;TrustServerCertificate=True;");
             
         }
+
         public DbSet<Comments> Comments { get; set; } = null!;
         public DbSet<Users> Users { get; set; } = null!;
         public DbSet<Type> Type { get; set; } = null!;
-        public DbSet<ApplicationStatus> ApplicationStatus { get; set; } = null!;
         public DbSet<Application> Application { get; set; } = null!;
         
 

@@ -11,6 +11,7 @@ namespace Servic.Models
         public string Phone { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public int Type { get; set; }
+        public int TypeId { get; set; }
+
     }
 }
