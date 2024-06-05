@@ -27,6 +27,7 @@
                     <DataGridTextColumn Header="Модель" Binding="{Binding carModel}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Описание неисправности" Width="100" Binding="{Binding proplemDescryption}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Статус" Binding="{Binding applicationStatus}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Дата окончания" Binding="{Binding completionDate}"></DataGridTextColumn>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
